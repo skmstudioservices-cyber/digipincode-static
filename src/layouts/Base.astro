@@ -1,0 +1,23 @@
+---
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="noindex,nofollow" />
+</head>
+<body>
+  <header class="wrap py-5 flex items-center justify-between">
+    <a href="/" class="font-semibold">Digipincode<span style="color:var(--color-brand)"> · static preview</span></a>
+  </header>
+  <main><slot /></main>
+  <footer class="wrap py-10 mt-12 border-t mute text-sm" style="border-color:var(--color-line)">
+    Preview build — not the live site. Data © India Post / LGD / OpenStreetMap.
+  </footer>
+</body></html>
